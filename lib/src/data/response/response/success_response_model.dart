@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 class SuccessResponseModel {
-  final int? status;
+  final String? status;
   final String? message;
 
   SuccessResponseModel({

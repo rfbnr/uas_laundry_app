@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 class ErrorResponseModel {
-  final int? status;
+  final String? status;
   final String? message;
 
   ErrorResponseModel({
