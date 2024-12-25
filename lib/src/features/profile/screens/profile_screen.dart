@@ -148,13 +148,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   EasyLoading.showError(error.message!);
                 }
               },
-              child: Button.filled(
-                label: "keluar",
-                onPressed: () {
-                  context.read<AuthBloc>().add(
-                        UserLogout(),
-                      );
-                },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20.0,
+                ),
+                child: Button.filled(
+                  label: "keluar",
+                  onPressed: () {
+                    context.read<AuthBloc>().add(
+                          UserLogout(),
+                        );
+                  },
+                ),
               ),
             ),
           ],
