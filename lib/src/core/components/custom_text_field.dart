@@ -40,7 +40,7 @@ class CustomTextField extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ),
-          const SpaceHeight(12.0),
+          const SpaceHeight(10.0),
         ],
         TextFormField(
           controller: controller,
