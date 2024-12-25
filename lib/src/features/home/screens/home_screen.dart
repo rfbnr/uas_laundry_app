@@ -5,7 +5,8 @@ import '../../../core/components/buttons.dart';
 import '../../../core/components/spaces.dart';
 import '../../../data/datasources/transaction_remote_datasource.dart';
 import '../../auth/bloc/auth_bloc.dart';
-import '../../transaction/bloc/transaction_list_bloc.dart';
+import '../../transaction/blocs/transaction_list_bloc/transaction_list_bloc.dart';
+import '../../transaction/screens/transaction_create_screen.dart';
 import '../../transaction/widgets/transcation_card_item_widget.dart';
 import '../bloc/home_bloc.dart';
 import '../widgets/home_dashboard_transaction_widget.dart';
@@ -225,7 +226,14 @@ class HomeScreenView extends StatelessWidget {
               ),
               child: Button.filled(
                 label: "Transaksi Baru",
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TransactionCreateScreen(),
+                    ),
+                  );
+                },
               ),
             ),
             SpaceHeight(40),
@@ -276,7 +284,7 @@ class HomeScreenView extends StatelessWidget {
                                 itemBuilder: (BuildContext context, int index) {
                                   final item = data![index];
 
-                                  return TransactionCardItemWidget(
+                                  return TranscationCardItemWidget(
                                     data: item,
                                   );
                                 },

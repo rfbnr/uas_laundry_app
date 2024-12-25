@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/components/spaces.dart';
-import '../bloc/transaction_list_bloc.dart';
+import '../blocs/transaction_list_bloc/transaction_list_bloc.dart';
 import 'transcation_card_item_widget.dart';
 
 class TabComplete extends StatefulWidget {
@@ -56,7 +56,7 @@ class _TabCompleteState extends State<TabComplete> {
                           itemBuilder: (BuildContext context, int index) {
                             final item = data![index];
 
-                            return TransactionCardItemWidget(
+                            return TranscationCardItemWidget(
                               data: item,
                             );
                           },

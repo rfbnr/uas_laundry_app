@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:uas_laundry_app/src/features/transaction/bloc/transaction_list_bloc.dart';
+import 'package:uas_laundry_app/src/features/transaction/blocs/transaction_list_bloc/transaction_list_bloc.dart';
 
 import '../../../core/components/spaces.dart';
+import '../blocs/transaction_update_bloc/transaction_update_bloc.dart';
 import 'transcation_card_item_widget.dart';
 
 class TabProcess extends StatefulWidget {
@@ -56,8 +57,18 @@ class _TabProcessState extends State<TabProcess> {
                           itemBuilder: (BuildContext context, int index) {
                             final item = data![index];
 
-                            return TransactionCardItemWidget(
+                            return TranscationCardItemWidget(
                               data: item,
+                              onPressed: () {
+                                Navigator.pop(context);
+
+                                context.read<TransactionUpdateBloc>().add(
+                                      TransactionUpdateProcessStatus(
+                                        id: item.id ?? 0,
+                                        status: "ready",
+                                      ),
+                                    );
+                              },
                             );
                           },
                         );

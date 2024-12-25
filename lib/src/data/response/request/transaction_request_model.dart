@@ -11,8 +11,8 @@ class TransactionRequestModel {
   final String? statusPayment;
   final int? totalPrice;
   final String? washingType;
-  final DateTime? pickupDate;
-  final DateTime? receivedDate;
+  final String? pickupDate;
+  final String? receivedDate;
 
   TransactionRequestModel({
     this.customerName,
@@ -46,12 +46,8 @@ class TransactionRequestModel {
         statusPayment: json["status_payment"],
         totalPrice: json["total_price"],
         washingType: json["washing_type"],
-        pickupDate: json["pickup_date"] == null
-            ? null
-            : DateTime.parse(json["pickup_date"]),
-        receivedDate: json["received_date"] == null
-            ? null
-            : DateTime.parse(json["received_date"]),
+        pickupDate: json["pickup_date"],
+        receivedDate: json["received_date"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -65,7 +61,7 @@ class TransactionRequestModel {
         "status_payment": statusPayment,
         "total_price": totalPrice,
         "washing_type": washingType,
-        "pickup_date": pickupDate?.toIso8601String(),
-        "received_date": receivedDate?.toIso8601String(),
+        "pickup_date": pickupDate,
+        "received_date": receivedDate,
       };
 }

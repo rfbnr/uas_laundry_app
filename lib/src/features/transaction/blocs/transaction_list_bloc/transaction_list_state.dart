@@ -6,13 +6,10 @@ enum TransactionReadyStatus { initial, loading, success, failure }
 
 enum TransactionCompleteStatus { initial, loading, success, failure }
 
-enum TransactionUpdateStatus { initial, loading, success, failure }
-
 class TransactionListState extends Equatable {
   final TransactionProcessStatus? statusProcess;
   final TransactionReadyStatus? statusReady;
   final TransactionCompleteStatus? statusComplete;
-  final TransactionUpdateStatus? updateStatus;
   final List<TransactionResultResponseModel>? transactionsProcess;
   final List<TransactionResultResponseModel>? transactionsReady;
   final List<TransactionResultResponseModel>? transactionsComplete;
@@ -23,7 +20,6 @@ class TransactionListState extends Equatable {
     this.statusProcess = TransactionProcessStatus.initial,
     this.statusReady = TransactionReadyStatus.initial,
     this.statusComplete = TransactionCompleteStatus.initial,
-    this.updateStatus = TransactionUpdateStatus.initial,
     this.transactionsProcess = const <TransactionResultResponseModel>[],
     this.transactionsReady = const <TransactionResultResponseModel>[],
     this.transactionsComplete = const <TransactionResultResponseModel>[],
@@ -35,7 +31,6 @@ class TransactionListState extends Equatable {
     TransactionProcessStatus? statusProcess,
     TransactionReadyStatus? statusReady,
     TransactionCompleteStatus? statusComplete,
-    TransactionUpdateStatus? updateStatus,
     List<TransactionResultResponseModel>? transactionsProcess,
     List<TransactionResultResponseModel>? transactionsReady,
     List<TransactionResultResponseModel>? transactionsComplete,
@@ -46,7 +41,6 @@ class TransactionListState extends Equatable {
       statusProcess: statusProcess ?? this.statusProcess,
       statusReady: statusReady ?? this.statusReady,
       statusComplete: statusComplete ?? this.statusComplete,
-      updateStatus: updateStatus ?? this.updateStatus,
       transactionsProcess: transactionsProcess ?? this.transactionsProcess,
       transactionsReady: transactionsReady ?? this.transactionsReady,
       transactionsComplete: transactionsComplete ?? this.transactionsComplete,
@@ -60,7 +54,6 @@ class TransactionListState extends Equatable {
         statusProcess,
         statusReady,
         statusComplete,
-        updateStatus,
         transactionsProcess,
         transactionsReady,
         transactionsComplete,

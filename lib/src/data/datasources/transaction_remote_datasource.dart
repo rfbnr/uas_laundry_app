@@ -76,7 +76,7 @@ class TransactionRemoteDatasource {
       },
     );
 
-    if (response.statusCode == 201) {
+    if (response.statusCode == 200) {
       return Right(SuccessResponseModel.fromRawJson(response.body));
     } else {
       return Left(ErrorResponseModel.fromRawJson(response.body));
